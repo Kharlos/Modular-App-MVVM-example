@@ -5,9 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.WelcomeFragment">
 
-    <Button
-        android:id="@+id/welcomeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:text="Modular app and MVVM pattern"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

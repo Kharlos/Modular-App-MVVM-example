@@ -6,8 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.welcome_fragment.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 import ve.com.cgblanco.everispoc1.R
 import ve.com.cgblanco.everispoc1.viewmodel.WelcomeViewModel
@@ -30,12 +35,12 @@ class WelcomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(WelcomeViewModel::class.java)
-        // TODO: Use the ViewModel
 
 
-        welcomeBtn.setOnClickListener{
+        GlobalScope.launch {
+            delay(1000)
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToSignInFragment()
-            welcomeBtn.findNavController().navigate(action)
+            findNavController().navigate(action)
         }
     }
 
