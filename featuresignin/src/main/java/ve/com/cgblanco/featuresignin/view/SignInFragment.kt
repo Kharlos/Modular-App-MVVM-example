@@ -1,24 +1,25 @@
 package ve.com.cgblanco.featuresignin.view
 
-import androidx.lifecycle.ViewModelProviders
+import android.app.ProgressDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.sign_in_fragment.*
-
-import android.text.TextUtils
-import androidx.annotation.Nullable
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import ve.com.cgblanco.featuresignin.model.LoginUser
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import dagger.android.support.DaggerFragment
 import ve.com.cgblanco.featuresignin.R
 import ve.com.cgblanco.featuresignin.databinding.SignInFragmentBinding
+import ve.com.cgblanco.featuresignin.viewmodel.SignInViewModel
 import java.util.*
+import javax.inject.Inject
 
 
-class SignInFragment : Fragment() {
+class SignInFragment : DaggerFragment() {
 
     companion object {
         fun newInstance() = SignInFragment()
@@ -28,12 +29,15 @@ class SignInFragment : Fragment() {
 
     private lateinit var binding: SignInFragmentBinding
 
+    private lateinit var progressBar: ProgressDialog
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        signInViewModel = ViewModelProviders.of(this).get(SignInViewModel::class.java)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.sign_in_fragment, container, false)
 
@@ -43,28 +47,50 @@ class SignInFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        signInViewModel = ViewModelProviders.of(this, viewModelFactory)[SignInViewModel::class.java]
+
+        progressBar = ProgressDialog(context)
+
         binding.lifecycleOwner = this
 
         binding.signInViewModel = signInViewModel
 
-        signInViewModel.getUser().observe(this, Observer {
+        setProgessBar()
+
+        signInViewModel.validateUser().observe(this, Observer {
             if (TextUtils.isEmpty(it.strEmailAddress)) {
-                binding.etEmail.setError("Enter an E-Mail Address")
+                binding.etEmail.error = "Enter an E-Mail Address"
                 binding.etEmail.requestFocus()
             } else if (!it.isEmailValid) {
-                binding.etEmail.setError("Enter a Valid E-mail Address")
+                binding.etEmail.error = "Enter a Valid E-mail Address"
                 binding.etEmail.requestFocus()
             } else if (TextUtils.isEmpty(Objects.requireNonNull(it).strPassword)) {
-                binding.etPassword.setError("Enter a Password")
+                binding.etPassword.error = "Enter a Password"
                 binding.etPassword.requestFocus()
             } else if (!it.isPasswordLengthGreaterThan5) {
-                binding.etPassword.setError("Enter at least 6 Digit password")
+                binding.etPassword.error = "Enter at least 6 Digit password"
                 binding.etPassword.requestFocus()
             } else {
                 binding.etEmail.setText(it.strEmailAddress)
                 binding.etPassword.setText(it.strPassword)
+                makeRequest()
             }
         })
+
+        signInViewModel.getUser().observe(this, Observer {
+            progressBar.dismiss()
+            Log.d("usuario", "user: " + it.name)
+        })
+    }
+
+    fun setProgessBar(){
+        progressBar.setMessage("Loading...")
+        progressBar.setCancelable(false)
+    }
+
+    fun makeRequest(){
+        progressBar.show()
+       signInViewModel.makeRequest()
     }
 
 }

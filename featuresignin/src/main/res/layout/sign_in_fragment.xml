@@ -7,7 +7,7 @@
 
         <variable
             name="SignInViewModel"
-            type="ve.com.cgblanco.featuresignin.view.SignInViewModel" />
+            type="ve.com.cgblanco.featuresignin.viewmodel.SignInViewModel" />
     </data>
 
 
