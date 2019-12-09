@@ -1,2 +1,2 @@
-include ':app', ':featuresignin'
+include ':app', ':featuresignin', ':datasource'
 rootProject.name='EverisPoc1'
