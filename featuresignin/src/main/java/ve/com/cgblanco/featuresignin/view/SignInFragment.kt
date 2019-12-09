@@ -90,7 +90,7 @@ class SignInFragment : DaggerFragment() {
 
     fun makeRequest(){
         progressBar.show()
-       signInViewModel.makeRequest()
+       signInViewModel.makeSignIn()
     }
 
 }

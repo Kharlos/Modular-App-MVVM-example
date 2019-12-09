@@ -37,7 +37,7 @@ class SignInViewModel @Inject constructor(val userRepository: SignInRepository) 
 
     }
 
-    fun makeRequest(){
+    fun makeSignIn(){
 
         userRepository.signIn(object : Listener<User>{
             override fun onError() {
