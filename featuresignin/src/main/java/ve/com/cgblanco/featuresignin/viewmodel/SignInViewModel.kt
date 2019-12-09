@@ -33,7 +33,7 @@ class SignInViewModel @Inject constructor(val userRepository: SignInRepository) 
 
         val loginUser = LoginUser(EmailAddress.value, Password.value)
 
-        userMutableLiveData!!.setValue(loginUser)
+        userMutableLiveData!!.value = loginUser
 
     }
 
