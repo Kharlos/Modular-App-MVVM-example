@@ -3,14 +3,15 @@ package ve.com.cgblanco.featuresignin.view
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation.findNavController
 import dagger.android.support.DaggerFragment
 import ve.com.cgblanco.featuresignin.R
 import ve.com.cgblanco.featuresignin.databinding.SignInFragmentBinding
@@ -79,7 +80,12 @@ class SignInFragment : DaggerFragment() {
 
         signInViewModel.getUser().observe(this, Observer {
             progressBar.dismiss()
-            Log.d("usuario", "user: " + it.name)
+            if(it != null){
+                val moviesURI = "homeview://homeview".toUri()
+                findNavController(binding.btnSignIn).navigate(moviesURI)
+            }else{
+                //Show an Error
+            }
         })
     }
 

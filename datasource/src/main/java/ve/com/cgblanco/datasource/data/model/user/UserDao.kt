@@ -12,6 +12,10 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(posts: User)
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM user limit 1")
     fun load(): LiveData<User>
+
+
+    @Query("SELECT * FROM user WHERE user.id = 1")
+    fun loadUser(): LiveData<User>
 }

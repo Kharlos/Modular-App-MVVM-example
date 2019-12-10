@@ -24,7 +24,6 @@ class SignInRepository@Inject constructor(
         networkClient.getRetrofitService(AppApi::class.java).signIn().enqueue(object :
             Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.d("response_posts", t.message)
                 listener.onError()
             }
 
