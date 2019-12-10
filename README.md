@@ -1,9 +1,9 @@
 
 # Modular-App-MVVM-example
 
-Modular app with MVVM 
+Modular app using MVVM
 
-This repository demonstrates a clearly defined, hierarchical layered architecure consisting of
+This repository demonstrates a clearly defined, hierarchical layered architecture consisting of
 
 - One App module
 - Some feature library, represented in Feature modules, works like an independily anothers, has 
