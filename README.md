@@ -19,7 +19,7 @@ MVVM pattern
 ![alt test](readmefiles/mvvm.png)
 
 
-Tecnologies used:
+Technologies used:
 - MVVM pattern
 - Modular app by feature
 - Arquitecture components
