@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 
 class SignInViewModel @Inject constructor(val userRepository: SignInRepository) : ViewModel() {
-    var EmailAddress = MutableLiveData<String>()
-    var Password = MutableLiveData<String>()
+    var emailAddress = MutableLiveData<String>()
+    var password = MutableLiveData<String>()
 
     private var userMutableLiveData: MutableLiveData<LoginUser>? = null
 
@@ -31,7 +31,7 @@ class SignInViewModel @Inject constructor(val userRepository: SignInRepository) 
 
     fun onClick(view: View) {
 
-        val loginUser = LoginUser(EmailAddress.value, Password.value)
+        val loginUser = LoginUser(emailAddress.value, password.value)
 
         userMutableLiveData!!.value = loginUser
 
