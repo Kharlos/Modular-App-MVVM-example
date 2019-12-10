@@ -6,9 +6,7 @@ Modular app using MVVM
 This repository demonstrates a clearly defined, hierarchical layered architecture consisting of
 
 - One App module
-- Some feature library, represented in Feature modules, works like an independily anothers, has 
-a specific fucntion insade of  all our project, SignIn Module, DataSource module: works like shared module to make api
-requests, persistence of data and has the model layer.
+-  Some feature library, represented in Feature modules, works independent, has a specific function inside of all our project, SignIn Module, DataSource module: works like a shared module to make API requests, the persistence of data and has the model layer.
 
 
 ![alt test](readmefiles/modular_apps.png)
