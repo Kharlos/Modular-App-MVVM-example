@@ -8,9 +8,7 @@ import ve.com.cgblanco.datasource.data.model.user.User
 import ve.com.cgblanco.datasource.data.model.user.UserDao
 
 
-/**
- * Created by Alireza Rafeezadeh on 6/12/2019.
- */
+
 
 
 @Database(entities = [User::class], version = 1)

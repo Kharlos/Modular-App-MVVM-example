@@ -1,6 +1,5 @@
 package ve.com.cgblanco.datasource.data.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.app.network.NetworkClient
 import com.app.network.cache.Listener

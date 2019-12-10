@@ -6,8 +6,6 @@ import ve.com.cgblanco.datasource.data.model.user.User
 
 class LoginUser(val strEmailAddress: String? = "", val strPassword: String? = "") {
 
-    var user: User? = null
-
     val isEmailValid: Boolean
         get() = Patterns.EMAIL_ADDRESS.matcher(strEmailAddress).matches()
 

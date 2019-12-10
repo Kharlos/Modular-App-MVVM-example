@@ -1,7 +1,6 @@
 package ve.com.cgblanco.datasource.data.model.user
 
 import android.content.Context
-import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.app.network.cache.CacheInterface
 import com.app.network.cache.MainDatabase
@@ -28,5 +27,8 @@ class UserPersist @Inject constructor(val context: Context) :
         return userDao.load()
     }
 
+    suspend fun updateUser(id:Int, name:String, email:String){
+        userDao.updateUserData(id, name, email)
+    }
 
 }
