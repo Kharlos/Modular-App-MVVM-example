@@ -91,10 +91,8 @@ class HomeFragment : DaggerFragment() {
 
         binding.buttonOpenNewsModule.setOnClickListener{
 
-            val moviesURI = "homeview://homeview".toUri()
-            Navigation.findNavController(binding.buttonOpenNewsModule).navigate(moviesURI)
-            //val intent = Intent().setClassName(context!!, "com.mindorks.news_feature.newsloader.NewsLoaderActivity")
-            //startActivity(intent)
+            val intent = Intent().setClassName(context!!, "ve.com.cgblanco.editprofile.view.activities.DynamicFeatureActivity")
+            startActivity(intent)
         }
 
         binding.buttonDeleteNewsModule.setOnClickListener{
