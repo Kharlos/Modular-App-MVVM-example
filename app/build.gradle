@@ -29,8 +29,6 @@ android {
     dataBinding {
         enabled true
     }
-    dynamicFeatures = [":editprofile"]
-
 
 }
 
@@ -78,7 +76,4 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
-
-    implementation "com.google.android.play:core:$play_core_version"
-
 }

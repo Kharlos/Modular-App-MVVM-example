@@ -30,33 +30,5 @@
             android:layout_height="wrap_content"/>
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvEmail"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-            <Button android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonClick"
-                android:text="Click to Download News Module"
-                android:layout_centerInParent="true"/>
-            <Button android:layout_width="wrap_content"
-                android:text="Open News Module"
-                android:id="@+id/buttonOpenNewsModule"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_below="@+id/buttonClick"
-                android:layout_centerInParent="true"/>
-            <Button android:layout_width="wrap_content"
-                android:text="Delete News Module"
-                android:id="@+id/buttonDeleteNewsModule"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_below="@+id/buttonOpenNewsModule"
-                android:layout_centerInParent="true"/>
-        </RelativeLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
