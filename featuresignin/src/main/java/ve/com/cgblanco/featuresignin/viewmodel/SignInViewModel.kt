@@ -1,5 +1,6 @@
 package ve.com.cgblanco.featuresignin.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.MutableLiveData
 import android.view.View
@@ -29,7 +30,9 @@ class SignInViewModel @Inject constructor(val userRepository: SignInRepository) 
 
     fun getUser()  = user
 
-    fun onClick(view: View) {
+    fun onClick(view: View, pws:String) {
+
+        Log.d("Pass","PWD: $pws")
 
         val loginUser = LoginUser(emailAddress.value, password.value)
 
