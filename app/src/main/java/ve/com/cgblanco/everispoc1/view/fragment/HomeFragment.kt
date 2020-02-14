@@ -1,27 +1,20 @@
 package ve.com.cgblanco.everispoc1.view.fragment
 
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
 import dagger.android.support.DaggerFragment
-import org.koin.android.ext.android.bind
 import ve.com.cgblanco.datasource.data.model.user.User
-
 import ve.com.cgblanco.everispoc1.R
 import ve.com.cgblanco.everispoc1.databinding.FragmentHomeBinding
 import ve.com.cgblanco.everispoc1.viewmodel.HomeViewModel
@@ -32,7 +25,7 @@ class HomeFragment : DaggerFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
-    private lateinit var binding:FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -80,7 +73,7 @@ class HomeFragment : DaggerFragment() {
             settingUserData(it)
         })
 
-        binding.buttonClick.setOnClickListener{
+        binding.buttonClick.setOnClickListener {
             if (!isDynamicFeatureDownloaded(DYNAMIC_FEATURE)) {
                 downloadFeature()
             } else {
@@ -89,13 +82,16 @@ class HomeFragment : DaggerFragment() {
             }
         }
 
-        binding.buttonOpenNewsModule.setOnClickListener{
+        binding.buttonOpenNewsModule.setOnClickListener {
 
-            val intent = Intent().setClassName(context!!, "ve.com.cgblanco.editprofile.view.activities.DynamicFeatureActivity")
+            val intent = Intent().setClassName(
+                context!!,
+                "ve.com.cgblanco.editprofile.view.activities.DynamicFeatureActivity"
+            )
             startActivity(intent)
         }
 
-        binding.buttonDeleteNewsModule.setOnClickListener{
+        binding.buttonDeleteNewsModule.setOnClickListener {
             val list = ArrayList<String>()
             list.add(DYNAMIC_FEATURE)
             uninstallDynamicFeature(list)
@@ -135,7 +131,7 @@ class HomeFragment : DaggerFragment() {
             }
     }
 
-    fun settingUserData(user:User){
+    fun settingUserData(user: User) {
         binding.tvUsername.text = "Nombre de usuario : ${user.name}"
         binding.tvEmail.text = "Email : ${user.email}"
     }
