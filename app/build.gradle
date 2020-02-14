@@ -29,8 +29,6 @@ android {
     dataBinding {
         enabled true
     }
-    dynamicFeatures = [":editprofile"]
-
 
 }
 
