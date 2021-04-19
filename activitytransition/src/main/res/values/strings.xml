@@ -1,0 +1,9 @@
+<resources>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_permission_rational">Activity Transition API Permission</string>
+    <string name="main_message_activity_permission_rational">Realice un seguimiento de los cambios de actividad permitiéndonos leer las transiciones de actividad de su teléfono.</string>
+    <string name="details_message_activity_permission_rational">La experiencia de esta aplicación requiere acceso a las transiciones de actividad de su teléfono para mostrar los cambios de caminar a quedarse quieto.</string>
+    <string name="no_thanks_activity_permission_rational">No gracias</string>
+    <string name="continue_activity_permission_rational">Continuar</string>
+</resources>

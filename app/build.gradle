@@ -29,6 +29,9 @@ android {
     dataBinding {
         enabled true
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
 }
 
@@ -38,6 +41,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(":activitytransition")
     implementation project(":featuresignin")
     implementation project(":datasource")
 

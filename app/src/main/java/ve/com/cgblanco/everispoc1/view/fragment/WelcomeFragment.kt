@@ -1,5 +1,6 @@
 package ve.com.cgblanco.everispoc1.view.fragment
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.bobmechanic.activitytransition.view.transitionapi.ActivityTransitionApiActivity
 import kotlinx.android.synthetic.main.welcome_fragment.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -39,8 +41,9 @@ class WelcomeFragment : Fragment() {
 
         GlobalScope.launch {
             delay(1000)
-            val action = WelcomeFragmentDirections.actionWelcomeFragmentToSignInFragment()
-            findNavController().navigate(action)
+            startActivity(Intent(requireContext(), ActivityTransitionApiActivity::class.java))
+            //val action = WelcomeFragmentDirections.actionWelcomeFragmentToSignInFragment()
+            //findNavController().navigate(action)
         }
     }
 
